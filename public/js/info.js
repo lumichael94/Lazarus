@@ -1,6 +1,6 @@
 var abi = [{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"deadmen","outputs":[{"name":"origin","type":"address"},{"name":"timestamp","type":"uint256"},{"name":"name","type":"bytes32"}],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"interval","type":"uint256"}],"name":"initialize","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"released","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"lazarus","outputs":[],"type":"function"}];
 var helpers = ethlightjs.helpers;
-var contractAddr = "eba1eadf355566f6fc2cf8baafc62cdf18037815";
+var contractAddr = "71696feb6f12903103c60357232c71ae60fae1bb";
 var api = new ethlightjs.blockchainapi.blockappsapi("http://stablenet.blockapps.net");
 var password = '';
 var seed = '';
@@ -23,22 +23,24 @@ function onLoad(){
 
 }
 function trigger(){
-    var trig = document.getElementById('trigger');
-    var sendingAddr = localStorage.getItem("address");
-    var protocol = localStorage.getItem("protocol");
     var seed = localStorage.getItem("seed");
     var keystore = new ethlightjs.keystore(seed, password);
     var address = keystore.generateNewAddress(password);
 
     console.log(keystore.getAddresses());
     console.log(address);
-    var accNonce = 0;
-    api.getNonce(contractAddr, function(err, nonce){
+    var accNonce;
+    api.getNonce(address, function(err, nonce){
+        var trig = document.getElementById('trigger');
+        var sendingAddr = localStorage.getItem("address");
+        var protocol = localStorage.getItem("protocol");
+        console.log(api);
         accNonce = nonce;
-    });
-    var txObj = {gasLimit: 3000000, gasPrice: 12000000000000, nonce: accNonce};
+        var txObj = {gasLimit: 3000000, gasPrice: 12000000000000, nonce: accNonce};
 
-    helpers.sendFunctionTx(abi, contractAddr, 'released', [],
-                    address, txObj, api, keystore, password,
-                    function (err, data) {console.log(data)});
+        helpers.sendFunctionTx(abi, contractAddr, 'released', [],
+                        address, txObj, api, keystore, password,
+                        function (err, data) {console.log(data)});
+    });
+
 }
