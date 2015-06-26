@@ -1,4 +1,10 @@
+body{
+	font-family: "Crimson Text";
+	background-color:#545454;
+}
 h2 {
+	font-family: "Crimson Text";
+	color: white;
 	margin-left:auto;
 	margin-right:auto;
     margin-top: 10%;
@@ -9,6 +15,12 @@ form {
      padding-top: 10px;
      padding-top: 10px;
 }
+
+
+#label{
+	color: white;
+}
+
 #submit-button{
 	margin-left: auto;
 	margin-right: auto;

@@ -1,5 +1,5 @@
 var helpers = ethlightjs.helpers;
-var abi = "[{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"deadmen","outputs":[{"name":"origin","type":"address"},{"name":"timestamp","type":"uint256"},{"name":"name","type":"bytes32"}],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"interval","type":"uint256"}],"name":"initialize","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"released","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"lazarus","outputs":[],"type":"function"}]";
+var abi = [{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"deadmen","outputs":[{"name":"origin","type":"address"},{"name":"timestamp","type":"uint256"},{"name":"name","type":"bytes32"}],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"interval","type":"uint256"}],"name":"initialize","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"released","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"lazarus","outputs":[],"type":"function"}];
 
 var api;
 function onLoad(){
@@ -7,6 +7,7 @@ function onLoad(){
     seedField.onkeyup = function(){
         console.log("seedField up")
         var seed = document.getElementById('seed').value;
+        // console.log(seed);
         var sel = document.getElementById('addresslist');
         var passwordField = document.getElementById('password');
         passwordField.onkeyup = function(){
@@ -35,10 +36,12 @@ function submit(){
     var name = document.getElementById('name').value;
     var sel = document.getElementById('addresslist');
     var address = sel.options[sel.selectedIndex].value;
+    var seed = document.getElementById('seed').value;
+    console.log(seed);
     localStorage.setItem("name", name);
     localStorage.setItem("address", address);
     localStorage.setItem("protocol", "TRIGGER");
-
+    localStorage.setItem("seed", seed);
 
 
     window.location.href = "/info";
