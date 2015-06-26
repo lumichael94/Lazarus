@@ -1,0 +1,16 @@
+h2 {
+	margin-left:auto;
+	margin-right:auto;
+    margin-top: 10%;
+	text-align: center;
+    vertical-align: middle;
+}
+form {
+     padding-top: 10px;
+     padding-top: 10px;
+}
+#submit-button{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}

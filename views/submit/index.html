@@ -1,0 +1,57 @@
+<html class="no-js" lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/submit.css">
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/ethlightjs.min.js"></script>
+    <script src="js/submit.js"></script>
+    <title>Submit</title>
+  </head>
+  <body bgcolor=white onLoad = "onLoad()">
+        <h2>Submit</h2>
+        <div class=submit-container>
+            <form>
+            <div class="row">
+              <div class="large-4 large-centered columns">
+                <label>Name
+                  <input type="text" id = "name" placeholder="Name" />
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-4 large-centered columns">
+                <label>Seed
+                  <input type="text" id = "seed" placeholder="Seed" />
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-4 large-centered columns">
+                <label>Password
+                  <input type="text" id = "password" placeholder="Password" />
+                </label>
+              </div>
+            </div>
+              <div class="row">
+                <div class="large-4 large-centered columns">
+                  <label>Select Your Address
+                    <select id = "addresslist">
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </form>
+            <div id="submit-button">
+					<button onclick="submit()" class= "button">Trigger</button>
+		    </div>
+        </div>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+  </body>
+</html>
