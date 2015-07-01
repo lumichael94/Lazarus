@@ -11,6 +11,7 @@ h2 {
 }
 
 #trigger {
+	-webkit-user-select: none;
     position: relative;
     top: 50%;
     width: 20em;

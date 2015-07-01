@@ -61,13 +61,5 @@ function submit(){
                              console.log(data);
                              window.location.href = "/info";
                              });
-
     });
-
-
-
-
-
-
-
 }
